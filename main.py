@@ -26,7 +26,7 @@ async def hi_cmd(ctx, user: discord.User, *, msg):
 
 @client.event
 async def on_member_join(member):
-    if discord.Guild == 719972123879407678: ## specifying which server the bot should welcome users in.
+    if member.guild.id == 719972123879407678: ## specifying which server the bot should welcome users in.
         mbed = discord.Embed(
             title = 'Welcome To The Chamber',
         )
