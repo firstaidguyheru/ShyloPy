@@ -1,8 +1,10 @@
 import os
-from discord.ext import commands
 from dotenv import load_dotenv
+from discord.ext import commands
+
 import discord
 from asyncio import sleep as s
+from discord.utils import get
 
 load_dotenv()
 
@@ -27,12 +29,13 @@ async def hi_cmd(ctx, user: discord.User, *, msg):
 
 @client.event
 async def on_member_join(member):
+    channel = get(member.guild.channels, name='welcome') ## specifying channel name.
     mbed = discord.Embed(
         title = f'Welcome To The {member.guild.name}',
     )
     mbed.set_image(url=f'{member.avatar_url}')
     mbed.set_footer(text=f'Members: {member.guild.member_count}')
-    await member.send(embed=mbed)
+    await channel.send(embed=mbed)
 
 ## ^ This event is used to welcome users to my server, id is specified.
 
