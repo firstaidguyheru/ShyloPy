@@ -7,7 +7,7 @@ from asyncio import sleep as s
 load_dotenv()
 
 intents = None
-client = commands.AutoShardedBot(command_prefix=commands.when_mentioned_or('clark!', 'clark '), help_comamnd = None, intents = intents)
+client = commands.AutoShardedBot(command_prefix=commands.when_mentioned_or('shylo!', 'shylo can you?', 'shylo'), help_comamnd = None, intents = intents)
 
 
 
@@ -18,9 +18,10 @@ async def on_ready():
 
 
 @client.command(name='notify', aliases=['Notify'])
-async def hi_cmd(ctx, user: discord.User, *, msg: any): 
-    await user.send(f'{msg}')
-
+async def hi_cmd(ctx, user: discord.User, *, msg): 
+    if ctx.author.id == 461287425625554950:
+        await user.send(f'{msg}')
+        await ctx.send('Success!')
 ## ^ This command is to DM a user for example: *why* their discord bot wasn('t) added/removed onto the server, can be used for other reason's but im choosing to be mature in this case.
 
 @client.event
