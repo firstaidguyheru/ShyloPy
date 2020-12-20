@@ -26,17 +26,17 @@ async def hi_cmd(ctx, user: discord.User, *, msg):
         await ctx.send('Success!')
 
 ## ^ This command is to DM a user for example: *why* their discord bot wasn('t) added/removed onto the server, can be used for other reason's but im choosing to be mature in this case.
-
-@client.event
-async def on_member_join(member):
-    channel = get(member.guild.channels, name='welcome') ## specifying channel name.
-    mbed = discord.Embed(
-        title = f'Welcome To The {member.guild.name}',
-    )
-    mbed.set_image(url=f'{member.avatar_url}')
-    mbed.set_footer(text=f'Members: {member.guild.member_count}')
-    await channel.send(embed=mbed)
-
+{
+# @client.event
+#async def on_member_join(member):
+#    channel = get(member.guild.channels, name='welcome') ## specifying channel name.
+ #   mbed = discord.Embed(
+  #      title = f'Welcome To The {member.guild.name}',
+   # )
+    #mbed.set_image(url=f'{member.avatar_url}')
+    #bed.set_footer(text=f'Members: {member.guild.member_count}')
+    #await channel.send(embed=mbed)
+}
 ## ^ This event is used to welcome users to my server, id is specified.
 
 client.run(os.getenv('TOKEN'))
