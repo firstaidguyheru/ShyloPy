@@ -22,17 +22,17 @@ async def hi_cmd(ctx, user: discord.User, *, msg):
     if ctx.author.id == 461287425625554950:
         await user.send(f'{msg}')
         await ctx.send('Success!')
+
 ## ^ This command is to DM a user for example: *why* their discord bot wasn('t) added/removed onto the server, can be used for other reason's but im choosing to be mature in this case.
 
 @client.event
 async def on_member_join(member):
-    if member.guild.id == 719972123879407678: ## specifying which server the bot should welcome users in.
-        mbed = discord.Embed(
-            title = 'Welcome To The Chamber',
-        )
-        mbed.set_image(url=f'{member.avatar_url}')
-        mbed.set_footer(text=f'Members: {member.guild.member_count}')
-        await member.send(embed=mbed)
+    mbed = discord.Embed(
+        title = f'Welcome To The {member.guild.name}',
+    )
+    mbed.set_image(url=f'{member.avatar_url}')
+    mbed.set_footer(text=f'Members: {member.guild.member_count}')
+    await member.send(embed=mbed)
 
 ## ^ This event is used to welcome users to my server, id is specified.
 
