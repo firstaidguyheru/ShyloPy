@@ -31,7 +31,9 @@ async def hi_cmd(ctx, user: discord.User, *, msg):
 async def on_member_join(member):
     channel = get(member.guild.channels, name='welcome') ## specifying channel name.
     mbed = discord.Embed(
-        title = f'Welcome To {member.guild.name} | [Invite Link](https://discord.gg/csUnYsr)',
+        title = f'Welcome To {member.guild.name}',
+        url = 'https://discord.gg/csUnYsr',
+        color = 0x2c2f33
     )
     mbed.set_image(url=f'{member.avatar_url}')
     mbed.set_footer(text=f'New Member Count: {member.guild.member_count}')
