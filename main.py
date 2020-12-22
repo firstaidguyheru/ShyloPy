@@ -36,7 +36,7 @@ async def on_member_join(member):
         color = 0x2c2f33
     )
     mbed.set_image(url=f'{member.avatar_url}')
-    mbed.set_footer(text=f'New Member Count: {member.guild.member_count}')
+    mbed.set_footer(text=f'New Member Count: {member.guild.member_count} | ID: {member.id}')
     await channel.send(embed=mbed)
 
 ## ^ This event is used to welcome users to my server, server members intent needed for it to work.
