@@ -8,7 +8,7 @@ from discord.utils import get
 
 load_dotenv()
 
-intents = discord.Intents.members
+intents = discord.Intents.members()
 client = commands.AutoShardedBot(command_prefix=commands.when_mentioned_or('shylo!', 'shylo can you?', 'shylo'), help_comamnd = None, intents = intents)
 
 
