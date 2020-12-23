@@ -41,4 +41,12 @@ async def on_member_join(member):
 
 ## ^ This event is used to welcome users to my server, server members intent needed for it to work.
 
+
+extensions = ['Cogs.videos']
+
+if __name__ == '__main__':
+    for ext in extensions:
+        client.load_extension(ext)
+
+
 client.run(os.getenv('TOKEN'))
