@@ -25,7 +25,7 @@ async def hi_cmd(ctx, user: discord.User, *, msg):
         await user.send(f'{msg}')
         await ctx.send('Success!')
 
-## ^ This command is to DM a user for example: *why* their discord bot wasn('t) added/removed onto the server, can be used for other reason's but im choosing to be mature in this case.
+## ^ This command is to DM a user for example: *why* their discord bot was(n't) added/removed onto the server, can be used for other reasons but im choosing to be mature in this case.
 
 @client.event
 async def on_member_join(member):
