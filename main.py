@@ -41,6 +41,16 @@ async def on_member_join(member):
 
 ## ^ This event is used to welcome users to my server, server members intent needed for it to work.
 
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+    checks = ('help me', 'how to', 'i need help', 'how do i', 'can someone help', 'i have a question')
+    if message.content.startswith(checks):
+        await message.channel.send('<:readthedocs:775801469685071893>')
+
+# ^ Read the docs!
+
 
 extensions = ['Cogs.videos']
 
