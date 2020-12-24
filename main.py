@@ -52,7 +52,7 @@ async def on_message(message):
 # ^ Read the docs!
 
 
-extensions = ['Cogs.videos']
+extensions = ['Cogs.videos', 'Cogs.modmail']
 
 if __name__ == '__main__':
     for ext in extensions:
