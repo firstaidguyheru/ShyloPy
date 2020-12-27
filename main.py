@@ -11,21 +11,13 @@ load_dotenv()
 intents = discord.Intents.all()
 client = commands.AutoShardedBot(command_prefix=commands.when_mentioned_or('shylo!', 'shylo can you?', 'shylo'), help_comamnd = None, intents = intents)
 
-
+## EVENTS ONLY
 
 @client.event
 async def on_ready():
     print(f'{client.user} has Awoken!')
     await client.wait_until_ready()
 
-
-@client.command(name='notify', aliases=['Notify'])
-async def hi_cmd(ctx, user: discord.User, *, msg): 
-    if ctx.author.id == 461287425625554950:
-        await user.send(f'{msg}')
-        await ctx.send('Success!')
-
-## ^ This command is to DM a user for example: *why* their discord bot was(n't) added/removed onto the server, can be used for other reasons but im choosing to be mature in this case.
 
 @client.event
 async def on_member_join(member):
@@ -49,7 +41,7 @@ async def on_message(message):
     if message.content.startswith(checks):
         await message.channel.send('<:readthedocs:775801469685071893>')
 
-# ^ Read the docs!
+## ^ Read the docs!
 
 
 extensions = ['Cogs.videos', 'Cogs.modmail']
