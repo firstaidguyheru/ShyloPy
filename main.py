@@ -9,9 +9,8 @@ from discord.utils import get
 load_dotenv()
 
 intents = discord.Intents.all()
-client = commands.AutoShardedBot(command_prefix=commands.when_mentioned_or('shylo!', 'shylo can you?', 'shylo'), help_comamnd = None, intents = intents)
+client = commands.AutoShardedBot(command_prefix=commands.when_mentioned_or('shylo!'), case_insensitive=True, help_comamnd = None, intents = intents)
 
-## EVENTS ONLY
 
 @client.event
 async def on_ready():
