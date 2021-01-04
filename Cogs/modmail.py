@@ -14,7 +14,7 @@ class modmail(commands.Cog):
     @commands.Cog.listener()
     async def on_message(self, message):
         guild = self.bot.get_all_channels()
-        channel = get(guild, guild__name="Clark's Chamber", name='private')
+        channel = get(guild, guild__name="Clark's Chamber", name='staff-chat')
         if message.channel == message.author.dm_channel:
             await channel.send(message.content + f"\n{message.author}[`{message.author.id}`]")
             await message.channel.send('Your message has been sent!', delete_after=7)
