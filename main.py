@@ -1,7 +1,6 @@
 import os
 from dotenv import load_dotenv
 from discord.ext import commands
-
 import discord
 from asyncio import sleep as s
 from discord.utils import get
@@ -37,11 +36,31 @@ async def on_message(message):
     if message.author == client.user:
         return
     checks = ('help me', 'how to', 'i need help', 'how do i', 'can someone help', 'i have a question')
-    if message.content.startswith(checks):
+    if 'help me' in message.content:
+        await message.channel.send('<:readthedocs:775801469685071893>')
+    elif 'how to' in message.content:
+        await message.channel.send('<:readthedocs:775801469685071893>')
+    elif 'i need help' in message.content:
+        await message.channel.send('<:readthedocs:775801469685071893>')
+    elif 'how do i' in message.content:
+        await message.channel.send('<:readthedocs:775801469685071893>')
+    elif 'can someone help' in message.content:
+        await message.channel.send('<:readthedocs:775801469685071893>')
+    elif 'i have a question' in message.content:
         await message.channel.send('<:readthedocs:775801469685071893>')
 
-## ^ Read the docs!
+## ^ Read the docs | Switch Cases in python!
 
+@client.command()
+async def reply(ctx, user: discord.User, *, msg): # placing in args needed for specification of user and message sent through the bot to the user.
+    if ctx.author.guild_permissions.administrator:
+        try:
+            await user.send(f'{msg} [{ctx.author.mention}]')
+            await ctx.send('Success.')
+        except:
+            await ctx.send('Error when sending message to {user}.')
+
+# notifier for modmail.
 
 extensions = ['Cogs.videos', 'Cogs.modmail']
 
