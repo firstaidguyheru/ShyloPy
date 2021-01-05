@@ -62,7 +62,7 @@ async def reply(ctx, user: discord.User, *, msg): # placing in args needed for s
 
 # notifier for modmail.
 
-extensions = ['Cogs.videos', 'Cogs.modmail']
+extensions = ['Cogs.additional', 'Cogs.modmail']
 
 if __name__ == '__main__':
     for ext in extensions:
