@@ -47,16 +47,18 @@ async def on_member_join(member):
 @client.event
 async def on_member_remove(member): ## Member remove event to counter-act join event.
     mbed = discord.Embed(
-        description = f'{member.mention} escaped into the Chamber.',
+        description = f'{member.mention} escaped the Chamber.',
         color = 0x2c2f33
     )
+    mbed.set_footer(text=f'New Member Count: {member.guild.member_count}')
     channel = get(member.guild.channels, name='general')
     await channel.send(embed=mbed)
     await sleep(60*10) ## Wait 10 minutes before updating.
     for channel_3 in member.guild.channels:
         if channel_3.name.startswith('N'):
             await channel_3.edit(name=f'Null: {member.guild.member_count}')
-
+            break
+            
 @client.event
 async def on_message(message):
     if message.author == client.user:
