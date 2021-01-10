@@ -22,7 +22,7 @@ async def on_member_join(member):
     channel = get(member.guild.channels, name='welcome') ## specifying channel name.
     channel_2 = get(member.guild.channels, name='general')
     mbed = discord.Embed(
-        title = f'Welcome To {member.guild.name}, {member.mention}',
+        title = f'Welcome To {member.guild.name}',
         url = 'https://discord.gg/csUnYsr',
         color = 0x2c2f33
     )
