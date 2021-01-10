@@ -35,10 +35,11 @@ async def on_member_join(member):
     mbed_2.set_footer(text=f'New Member Count: {member.guild.member_count}')
     await channel.send(embed=mbed)
     await channel_2.send(embed=mbed_2, delete_after=60*60)
-    await sleep(1)
-    for channel_3 in member.guild.channels:
+    await sleep(60*10) ## Waiting 10 minutes before updating member count channel so I don't get rate-limited.
+    for channel_3 in member.guild.channels: 
         if channel_3.name.startswith('N'):
             await channel_3.edit(name=f'Null: {member.guild.member_count}')
+            break
 
 ## ^ This event is used to welcome users to my server, server members intent needed for it to work.
 
