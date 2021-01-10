@@ -22,7 +22,7 @@ async def on_member_join(member):
     channel = get(member.guild.channels, name='welcome') ## specifying channel name.
     channel_2 = get(member.guild.channels, name='general')
     mbed = discord.Embed(
-        title = f'Welcome To {member.guild.name}',
+        title = f'Welcome To {member.guild.name}, {member.mention}',
         url = 'https://discord.gg/csUnYsr',
         color = 0x2c2f33
     )
@@ -35,12 +35,26 @@ async def on_member_join(member):
     mbed_2.set_footer(text=f'New Member Count: {member.guild.member_count}')
     await channel.send(embed=mbed)
     await channel_2.send(embed=mbed_2, delete_after=60*60)
-    await sleep(1)
+    await sleep(60*10) ## Wait 10 minutes before updating
     for channel_3 in member.guild.channels:
         if channel_3.name.startswith('N'):
             await channel_3.edit(name=f'Null: {member.guild.member_count}')
 
 ## ^ This event is used to welcome users to my server, server members intent needed for it to work.
+
+
+@client.event
+async def on_member_remove(member): ## Member remove event to counter-act join event.
+    mbed = discord.Embed(
+        description = f'{member.mention} escaped into the Chamber.',
+        color = 0x2c2f33
+    )
+    channel = get(member.guild.channels, name='general')
+    await channel.send(embed=mbed)
+    await sleep(60*10) ## Wait 10 minutes before updating.
+    for channel_3 in member.guild.channels:
+        if channel_3.name.startswith('N'):
+            await channel_3.edit(name=f'Null: {member.guild.member_count}')
 
 @client.event
 async def on_message(message):
