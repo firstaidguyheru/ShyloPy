@@ -33,5 +33,14 @@ class additional(commands.Cog):
 
 ## *more python switch cases*
 
+    @commands.command(name = 'Announce', aliases = ['announce', 'a'])
+    @commands.cooldown(rate=1, per=2, type=BucketType.user)
+    async def an_cmd(self, ctx, channel: discord.TextChannel, *, msg: str):
+        if ctx.author.guild_permissions.administrator:
+            await ctx.message.add_reaction('✅')
+            await channel.send(msg)
+ 
+## ^ Announce command lol
+
 def setup(bot):
     bot.add_cog(additional(bot))
