@@ -1,4 +1,4 @@
-import discord as d
+import discord
 import random
 from discord.ext import commands
 from discord.ext.commands import BucketType
