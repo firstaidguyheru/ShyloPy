@@ -2,7 +2,8 @@ import discord as d
 import random
 from discord.ext import commands
 from discord.ext.commands import BucketType
-
+import time
+import datetime
 
 
 
