@@ -78,6 +78,7 @@ async def on_message(message):
         await message.channel.send('<:readthedocs:775801469685071893>')
     elif 'how' in message.content:
         await message.channel.send('<:readthedocs:775801469685071893>')
+    await client.process_commands(message)
 
 ## ^ Read the docs | Switch Cases in python!
 
@@ -89,7 +90,6 @@ async def reply(ctx, user: discord.User, *, msg): # placing in args needed for s
             await ctx.send('Success.')
         except:
             await ctx.send('Error when sending message to {user}.')
-    await client.process_commands(message)
     
 # notifier for modmail.
 
