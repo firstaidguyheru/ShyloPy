@@ -36,7 +36,7 @@ class additional(commands.Cog):
     @commands.command()
     async def a(self, ctx, channel: discord.TextChannel, *, msg: str):
         if ctx.author.guild_permissions.administrator:
-            await ctx.send('Gotcha.)
+            await ctx.send('Gotcha.')
             await channel.send(msg)
  
 ## ^ Announce command lol
