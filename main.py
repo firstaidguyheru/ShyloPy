@@ -89,7 +89,8 @@ async def reply(ctx, user: discord.User, *, msg): # placing in args needed for s
             await ctx.send('Success.')
         except:
             await ctx.send('Error when sending message to {user}.')
-
+    await client.process_commands(message)
+    
 # notifier for modmail.
 
 extensions = ['Cogs.additional', 'Cogs.modmail']
