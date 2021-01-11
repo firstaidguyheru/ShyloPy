@@ -19,7 +19,6 @@ class modmail(commands.Cog):
             if message.channel == message.author.dm_channel:
                 await channel.send(message.content + f"\n{message.author}[`{message.author.id}`]")
                 await message.channel.send('Your message has been sent!', delete_after=7)
-                await channel.send(embed=discord.Embed(description='Use shylo!reply @user {message} to reply.', color=0x2c2f33))
         except:
             pass
     ## ^ simple modmail event/function, it works, that's all that matters.
