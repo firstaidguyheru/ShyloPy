@@ -59,27 +59,6 @@ async def on_member_remove(member): ## Member remove event to counter-act join e
             await channel_3.edit(name=f'Null: {member.guild.member_count}')
             break
             
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
-    checks = ('help me', 'how to', 'i need help', 'how do i', 'can someone help', 'i have a question')
-    if 'help me' in message.content:
-        await message.channel.send('<:readthedocs:775801469685071893>')
-    elif 'how to' in message.content:
-        await message.channel.send('<:readthedocs:775801469685071893>')
-    elif 'i need help' in message.content:
-        await message.channel.send('<:readthedocs:775801469685071893>')
-    elif 'how do i' in message.content:
-        await message.channel.send('<:readthedocs:775801469685071893>')
-    elif 'can someone help' in message.content:
-        await message.channel.send('<:readthedocs:775801469685071893>')
-    elif 'i have a question' in message.content:
-        await message.channel.send('<:readthedocs:775801469685071893>')
-    elif 'how' in message.content:
-        await message.channel.send('<:readthedocs:775801469685071893>')
-    await client.process_commands(message)
-
 ## ^ Read the docs | Switch Cases in python!
 
 @client.command()
