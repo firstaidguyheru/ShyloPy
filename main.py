@@ -5,10 +5,11 @@ import discord
 from asyncio import sleep as s
 from discord.utils import get
 from asyncio import sleep
+
 load_dotenv()
 
 intents = discord.Intents.all()
-client = commands.AutoShardedBot(command_prefix=commands.when_mentioned_or('shylo!'), case_insensitive=True, help_command = None, intents = intents)
+client = commands.AutoShardedBot(command_prefix=commands.when_mentioned_or('shylo!'), case_insensitive=True, help_command=None, intents=intents)
 
 
 @client.event
