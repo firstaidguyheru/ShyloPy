@@ -54,9 +54,9 @@ async def on_member_remove(member): ## Member remove event to counter-act join e
     channel = get(member.guild.channels, name='general')
     await channel.send(embed=mbed)
     await sleep(60*10) ## Wait 10 minutes before updating.
-    for channel_3 in member.guild.channels:
-        if channel_3.name.startswith('N'):
-            await channel_3.edit(name=f'Null: {member.guild.member_count}')
+    for channel_2 in member.guild.channels:
+        if channel_2.name.startswith('N'):
+            await channel_2.edit(name=f'Null: {member.guild.member_count}')
             break
             
 ## ^ Read the docs | Switch Cases in python!
@@ -68,8 +68,6 @@ async def reply(ctx, user: discord.User, *, msg): # placing in args needed for s
             await user.send(f'{msg} [{ctx.author.mention}]')
             await ctx.send('Success.')
         except:
-            idk_lol = True
-        if idk_lol == True:
             await ctx.send(f'Error when sending message to {user}.')
     
 # notifier for modmail.
