@@ -12,13 +12,13 @@ class modmail(commands.Cog):
 
 
     @commands.Cog.listener()
+    @commands.dm_only()
     async def on_message(self, message):
         channels = self.bot.get_all_channels()
         channel = get(channels, guild__name="Clark's Chamber", name='staff-chat')
         try:
-            if isinstance(message.channel, discord.channel.DMChannel):
-                await channel.send(message.content + f"\n{message.author}[`{message.author.id}`]")
-                await message.channel.send('Your message has been sent!', delete_after=7)
+             await channel.send(message.content + f"\n{message.author}[`{message.author.id}`]")
+             await message.channel.send('Your message has been sent!', delete_after=7)
         except:
             pass
     ## ^ simple modmail event/function, it works, that's all that matters.
