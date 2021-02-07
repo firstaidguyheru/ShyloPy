@@ -16,7 +16,7 @@ class modmail(commands.Cog):
         channels = self.bot.get_all_channels()
         channel = get(channels, guild__name="Clark's Chamber", name='staff-chat')
         try:
-            if message.channel.type == discord.ChannelType.private:
+            if isinstance(message.channel, discord.channel.DMChannel):
                 await channel.send(message.content + f"\n{message.author}[`{message.author.id}`]")
                 await message.channel.send('Your message has been sent!', delete_after=7)
         except:
