@@ -1,8 +1,9 @@
-import discord as d
+import discord
 import random
 from discord.ext import commands
 from discord.ext.commands import BucketType
-
+import time
+import datetime
 
 
 
@@ -31,6 +32,14 @@ class additional(commands.Cog):
         await message.edit(content=None, embed=pEmbed)
 
 ## *more python switch cases*
+
+    @commands.command()
+    async def a(self, ctx, channel: discord.TextChannel, *, msg: str):
+        if ctx.author.guild_permissions.administrator:
+            await ctx.send('Gotcha.')
+            await channel.send(msg)
+ 
+## ^ Announce command lol
 
 def setup(bot):
     bot.add_cog(additional(bot))

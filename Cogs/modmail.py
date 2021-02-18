@@ -12,14 +12,14 @@ class modmail(commands.Cog):
 
 
     @commands.Cog.listener()
+    @commands.dm_only()
     async def on_message(self, message):
-        guild = self.bot.get_all_channels()
-        channel = get(guild, guild__name="Clark's Chamber", name='staff-chat')
+        channels = self.bot.get_all_channels()
+        channel = get(channels, guild__name="Clark's Chamber", name='staff-chat')
         try:
             if message.channel == message.author.dm_channel:
                 await channel.send(message.content + f"\n{message.author}[`{message.author.id}`]")
                 await message.channel.send('Your message has been sent!', delete_after=7)
-                await channel.send(embed=discord.Embed(description='Use shylo!reply @user {message} to reply.', color=0x2c2f33))
         except:
             pass
     ## ^ simple modmail event/function, it works, that's all that matters.
