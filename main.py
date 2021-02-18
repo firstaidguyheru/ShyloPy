@@ -26,7 +26,7 @@ async def upload_event(): ## Making a request to youtube for an upload every 30 
             data = r.execute()
             video_id = data['items'][0]['snippet']['resourceId']['videoId'] # Given the index, I am accessing a dict that provides me with the video id.
             link = f"https://www.youtube.com/watch?v={video_id}"
-            ch=await client.get(client.get_all_channels(), guild__name="Clark's Chamber", name='uploads')
+            ch = get(client.get_all_channels(), guild__name="Clark's Chamber", name='uploads')
 
             async for msg in ch.history(limit=1): # searching channel history incase if the link taken from the json is already uploaded to the channel.      
                 if str(link) != str(msg.content):
