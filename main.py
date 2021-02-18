@@ -5,7 +5,6 @@ import discord
 from asyncio import sleep as s
 from discord.utils import get
 from asyncio import sleep
-<<<<<<< HEAD
 import tasks
 from googleapiclient.discovery import build
 
