@@ -1,3 +1,5 @@
 discord
 discord.py
 python-dotenv
+googleapiclient.discovery
+tasks
