@@ -5,48 +5,16 @@ import discord
 from asyncio import sleep as s
 from discord.utils import get
 from asyncio import sleep
-from googleapiclient.discovery import build
 
 load_dotenv()
 
 intents = discord.Intents.all()
 client = commands.AutoShardedBot(command_prefix=commands.when_mentioned_or('shylo!'), case_insensitive=True, help_command=None, intents=intents)
 
-## YOUTUBE
-
-async def upload_event(): ## Making a request to youtube for an upload every 30 mins.
-    while True:
-        try:
-            youtube = build('youtube','v3', developerKey=os.getenv("YT"))
-            r = youtube.playlistItems().list(
-                playlistId='PLTQslEOnCcC3-kXFlBhqYW5yUKYA5z_Hn', # Setting the id to my tutorial playlist id.
-                part='snippet',
-                maxResults=1
-            )
-            data = r.execute()
-            video_id = data['items'][0]['snippet']['resourceId']['videoId'] # Given the index, I am accessing a dict that provides me with the video id.
-            link = f"https://www.youtube.com/watch?v={video_id}"
-            ch = get(client.get_all_channels(), guild__name="Clark's Chamber", name='uploads')
-
-            async for msg in ch.history(limit=1): # searching channel history incase if the link taken from the json is already uploaded to the channel.      
-                if str(link) != str(msg.content):
-                    await ch.send(f'Clark just uploaded a vid.\n{link}')
-                else:
-                    pass
-
-        except IndexError:
-            print('Something went wrong when getting video id from response.')
-        await s(60*30)
-
-
-## OTHER STUFF
-
 @client.event
 async def on_ready():
     print(f'{client.user} has Awoken!')
     await client.wait_until_ready()
-    await client.loop.create_task(upload_event())
-
 
 @client.event
 async def on_member_join(member):
