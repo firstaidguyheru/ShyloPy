@@ -64,7 +64,7 @@ async def on_member_remove(member): ## Member remove event to counter-act join e
 async def reply(ctx, user: discord.User, *, msg): # placing in args needed for specification of user and message sent through the bot to the user.
     if ctx.author.guild_permissions.administrator:
         try:
-            await user.send(f'{msg} [{ctx.author.mention}]')
+            await user.send(f'{msg} [{ctx.author}]')
             await ctx.send('Success.')
         except:
             await ctx.send(f'Error when sending message to {user}.')
