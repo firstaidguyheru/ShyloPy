@@ -8,7 +8,8 @@ from asyncio import sleep
 
 load_dotenv()
 
-intents = discord.Intents.all()
+intents = discord.Intents.default()
+intents.members = True
 client = commands.AutoShardedBot(command_prefix=commands.when_mentioned_or('shylo!'), case_insensitive=True, help_command=None, intents=intents)
 
 @client.event
