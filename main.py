@@ -58,7 +58,6 @@ async def on_member_remove(member): ## Member remove event to counter-act join e
             await channel_2.edit(name=f'Null: {member.guild.member_count}')
             break
             
-## ^ Read the docs | Switch Cases in python!
 
 @client.command()
 async def reply(ctx, user: discord.User, *, msg): # placing in args needed for specification of user and message sent through the bot to the user.
