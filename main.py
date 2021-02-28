@@ -69,7 +69,7 @@ async def on_message(message):
     else:
         channel = get(client.get_all_channels(), guild__name="Clark's Chamber", name='monke-chain')
         if message.channel.id == channel.id:
-            checks = ('monke', 'Monke')
+            checks = ('monke'.casefold())
             if not message.content.startswith(checks):
                 await message.delete()
             else:
