@@ -63,18 +63,19 @@ async def on_member_remove(member): ## Member remove event to counter-act join e
 
 @client.event
 async def on_message(message):
-    if message.author.id == client.user.id:
+    if message.author == client.user:
         pass
 
     else:
         channel = get(client.get_all_channels(), guild__name="Clark's Chamber", name='monke-chain')
         if message.channel.id == channel.id:
-            if not message.content.startswith('monke', 'Monke'):
+            checks = ('monke', 'Monke')
+            if not message.content.startswith(checks):
                 await message.delete(reason='monke')
             else:
                 pass
     await client.process_commands(message)
-    
+
 ## Channel's starting to get annoying to moderate!
 
 @client.command()
