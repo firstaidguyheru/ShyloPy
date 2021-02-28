@@ -33,7 +33,7 @@ class additional(commands.Cog):
 
 ## *more python switch cases*
 
-    @commands.command()
+    @commands.command(aliases=['announce'])
     async def a(self, ctx, channel: discord.TextChannel, *, msg: str):
         if ctx.author.guild_permissions.administrator:
             await ctx.send('Gotcha.')
