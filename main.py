@@ -71,7 +71,7 @@ async def on_message(message):
         if message.channel.id == channel.id:
             checks = ('monke', 'Monke')
             if not message.content.startswith(checks):
-                await message.delete(reason='monke')
+                await message.delete()
             else:
                 pass
     await client.process_commands(message)
