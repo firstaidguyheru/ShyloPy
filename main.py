@@ -73,7 +73,8 @@ async def on_message(message):
                 await message.delete(reason='monke')
             else:
                 pass
-
+    await client.process_commands(message)
+    
 ## Channel's starting to get annoying to moderate!
 
 @client.command()
