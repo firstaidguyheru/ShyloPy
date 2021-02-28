@@ -59,6 +59,22 @@ async def on_member_remove(member): ## Member remove event to counter-act join e
             await channel_2.edit(name=f'Null: {member.guild.member_count}')
             break
             
+        channel = get(client.get_all_channels(), guild__name="Clark's Chamber", name='monke-chain')
+
+@client.event
+async def on_message(message):
+    if message.author.id == client.user.id:
+        pass
+
+    else:
+        channel = get(client.get_all_channels(), guild__name="Clark's Chamber", name='monke-chain')
+        if message.channel.id == channel.id:
+            if not message.content.startswith('monke', 'Monke'):
+                await message.delete(reason='monke')
+            else:
+                pass
+
+## Channel's starting to get annoying to moderate!
 
 @client.command()
 async def reply(ctx, user: discord.User, *, msg): # placing in args needed for specification of user and message sent through the bot to the user.

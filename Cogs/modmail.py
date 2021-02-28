@@ -22,7 +22,8 @@ class modmail(commands.Cog):
                 await message.channel.send('Your message has been sent!', delete_after=7)
         except:
             pass
-    ## ^ simple modmail event/function, it works, that's all that matters.
+
+    ## ^ simple modmail event, it works, that's all that matters.
 
 
 

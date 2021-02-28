@@ -41,5 +41,7 @@ class additional(commands.Cog):
  
 ## ^ Announce command lol
 
+    
+
 def setup(bot):
     bot.add_cog(additional(bot))
