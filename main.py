@@ -83,7 +83,7 @@ async def on_message_edit(after):
     else:
         channel = get(client.get_all_channels(), guild__name="Clark's Chamber", name='monke-chain')
         if message.channel.id == channel.id:
-            if not 'monke'.casefold() in after.content:
+            if not 'monke'.casefold() == after.content:
                 await after.delete()
 
 ## Channel's starting to get annoying to moderate!
