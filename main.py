@@ -76,7 +76,7 @@ async def on_message(message):
     await client.process_commands(message)
 
 @client.event
-async def on_message_edit(after):
+async def on_message_edit(before, after):
     if after.author == client.user:
         pass
 
