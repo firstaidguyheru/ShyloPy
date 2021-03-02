@@ -69,12 +69,22 @@ async def on_message(message):
     else:
         channel = get(client.get_all_channels(), guild__name="Clark's Chamber", name='monke-chain')
         if message.channel.id == channel.id:
-            checks = ('monke'.casefold())
-            if not message.content.startswith(checks):
+            if not message.content == 'monke'.casefold():
                 await message.delete()
             else:
                 pass
     await client.process_commands(message)
+
+@client.event
+async def on_message_edit(after):
+    if message.author == client.user:
+        pass
+
+    else:
+        channel = get(client.get_all_channels(), guild__name="Clark's Chamber", name='monke-chain')
+        if message.channel.id == channel.id:
+            if not 'monke'.casefold() in after.content:
+                await after.delete()
 
 ## Channel's starting to get annoying to moderate!
 
