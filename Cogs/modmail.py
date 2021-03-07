@@ -18,7 +18,7 @@ class modmail(commands.Cog):
         channel = get(channels, guild__name="Clark's Chamber", name='staff-chat')
         try:
             if message.channel == message.author.dm_channel:
-                await channel.send(embed=d.Embed(title=f'Modmail from {message.author}', description=f"{message.content}").set_footer(text=f'ID: {message.author.id}'))
+                await channel.send(embed=d.Embed(title=f'Modmail from {message.author}', color=0x2c2f33, description=f"{message.content}").set_footer(text=f'ID: {message.author.id}'))
                 await message.channel.send('Your message has been sent!', delete_after=7)
         except:
             pass
