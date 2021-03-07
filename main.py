@@ -95,7 +95,7 @@ async def reply(ctx, user: discord.User, *, msg): # placing in args needed for s
             await user.send(f'{msg} [{ctx.author}]')
             await ctx.send('Success.')
         except:
-            await ctx.send(f'Error when sending message to {user}.')
+            await ctx.send(embed=discord.Embed(description=f'Error when sending message to {user}.'))
     
 # notifier for modmail.
 
