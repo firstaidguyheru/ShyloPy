@@ -92,10 +92,15 @@ async def on_message_edit(before, after):
 async def reply(ctx, user: discord.User, *, msg): # placing in args needed for specification of user and message sent through the bot to the user.
     if ctx.author.guild_permissions.administrator:
         try:
-            await user.send(f'{msg} [{ctx.author}]')
+            mbed = discord.Embed(
+                description=f'{msg}',
+                color=0x2c2f33
+            )
+            mbed.set_footer(text=f'Message sent by: {ctx.author}')
+            await user.send(embed=mbed)
             await ctx.send('Success.')
         except:
-            await ctx.send(embed=discord.Embed(description=f'Error when sending message to {user}.'))
+            await ctx.send(f'Error when sending message to {user}.')
     
 # notifier for modmail.
 
