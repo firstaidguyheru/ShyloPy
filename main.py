@@ -96,7 +96,7 @@ async def reply(ctx, user: discord.User, *, msg): # placing in args needed for s
                 description=f'{msg}',
                 color=0x2c2f33
             )
-            mbed.set_footer(text=f'Message sent by: {ctx.author}')
+            mbed.set_footer(text=f'Message Sent By: {ctx.author}')
             await user.send(embed=mbed)
             await ctx.send('Success.')
         except:
