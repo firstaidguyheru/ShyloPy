@@ -16,7 +16,7 @@ class modmail(commands.Cog):
     async def on_message(self, message):
         time_difference = (datetime.datetime.utcnow() - self.last_timeStamp).total_seconds()
         if time_difference < 5:
-            message.channel.send("You are on cooldown!")
+            await message.channel.send("You are on cooldown!")
             return
         channels = self.bot.get_all_channels()
         channel = get(channels, guild__name="Clark's Chamber", name='staff-chat')
