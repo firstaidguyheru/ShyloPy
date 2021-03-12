@@ -1,2 +1,4 @@
 discord
 python-dotenv
+time
+datetime
