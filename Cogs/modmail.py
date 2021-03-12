@@ -17,14 +17,14 @@ class modmail(commands.Cog):
     async def on_message(self, message):
         if message.author.bot:
             return
-        time_difference = (datetime.datetime.utcnow() - self.last_timeStamp).total_seconds()
-        if time_difference < 5:
-            await message.channel.send("You are on cooldown!")
-            return
         channels = self.bot.get_all_channels()
         channel = get(channels, guild__name="Clark's Chamber", name='staff-chat')
         try:
             if message.channel == message.author.dm_channel:
+                time_difference = (datetime.datetime.utcnow() - self.last_timeStamp).total_seconds()
+                if time_difference < 5:
+                    await message.channel.send("You are on cooldown!")
+                    return
                 await channel.send(embed=d.Embed(title=f'Modmail From {message.author}', color=0x2c2f33, description=f"{message.content}").set_footer(text=f'ID: {message.author.id}'))
                 await message.channel.send('Your message has been sent!', delete_after=7)
                 self.last_timeStamp = datetime.datetime.utcnow()
