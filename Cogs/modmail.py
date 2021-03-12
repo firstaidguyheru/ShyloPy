@@ -15,6 +15,8 @@ class modmail(commands.Cog):
     @commands.Cog.listener()
     @commands.dm_only()
     async def on_message(self, message):
+        if message.author.bot:
+            return
         time_difference = (datetime.datetime.utcnow() - self.last_timeStamp).total_seconds()
         if time_difference < 5:
             await message.channel.send("You are on cooldown!")
