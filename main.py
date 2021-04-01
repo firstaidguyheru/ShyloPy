@@ -68,7 +68,7 @@ async def on_message(message):
 
     else:
         channel = get(client.get_all_channels(), guild__name="Clark's Chamber", name='monke-chain')
-        if message.channel.id == channel.id:
+        if message.channel == channel:
             if not message.content == 'monke'.casefold():
                 await message.delete()
             else:
