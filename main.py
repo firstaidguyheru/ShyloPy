@@ -59,15 +59,13 @@ async def on_member_remove(member): ## Member remove event to counter-act join e
             await channel_2.edit(name=f'Null: {member.guild.member_count}')
             break
             
-        channel = get(client.get_all_channels(), guild__name="Clark's Chamber", name='monke-chain')
-
 @client.event
 async def on_message(message):
     if message.author == client.user:
         pass
 
     else:
-        channel = get(client.get_all_channels(), guild__name="Clark's Chamber", name='monke-chain')
+        channel = get(client.get_all_channels(), guild__name="Rxality's Chamber", name='monke-chain')
         if message.channel.id == channel.id:
             if not message.content == 'monke'.casefold():
                 await message.delete()
@@ -81,7 +79,7 @@ async def on_message_edit(before, after):
         pass
 
     else:
-        channel = get(client.get_all_channels(), guild__name="Clark's Chamber", name='monke-chain')
+        channel = get(client.get_all_channels(), guild__name="Rxality's Chamber", name='monke-chain')
         if after.channel.id == channel.id:
             if not after.content.lower() == 'monke':
                 await after.delete()
