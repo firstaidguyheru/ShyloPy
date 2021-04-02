@@ -65,7 +65,7 @@ async def on_message(message):
         pass
 
     else:
-        channel = get(client.get_all_channels(), guild__name="Rxality's Chamber", name='monke-chain')
+        channel = get(client.get_all_channels(), guild__name="Clark's Chamber", name='monke-chain')
         if message.channel.id == channel.id:
             if not message.content == 'monke'.casefold():
                 await message.delete()
@@ -79,7 +79,7 @@ async def on_message_edit(before, after):
         pass
 
     else:
-        channel = get(client.get_all_channels(), guild__name="Rxality's Chamber", name='monke-chain')
+        channel = get(client.get_all_channels(), guild__name="Clark's Chamber", name='monke-chain')
         if after.channel.id == channel.id:
             if not after.content.lower() == 'monke':
                 await after.delete()
