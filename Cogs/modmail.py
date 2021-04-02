@@ -18,7 +18,7 @@ class modmail(commands.Cog):
         if message.author.bot:
             return
         channels = self.bot.get_all_channels()
-        channel = get(channels, guild__name="Rxality's Chamber", name='staff-chat')
+        channel = get(channels, guild__name="Clark's Chamber", name='staff-chat')
         try:
             if message.channel == message.author.dm_channel:
                 time_difference = (datetime.datetime.utcnow() - self.last_timeStamp).total_seconds()
