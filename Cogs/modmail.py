@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-from datetime    import datetime
+from datetime import datetime
 
 
 class Modmail(commands.Cog):
@@ -9,7 +9,7 @@ class Modmail(commands.Cog):
         self.bot = bot
         self.channel_id = 795663906018033735
         self.modmail_channel = self.bot.get_channel(self.channel_id)
-        self.last_timeStamp  = datetime.datetime.utcfromtimestamp(0)
+        self.last_timeStamp  = datetime.utcfromtimestamp(0)
 
     @commands.Cog.listener()
     @commands.dm_only()
