@@ -1,15 +1,15 @@
 import discord
 from discord.ext import commands
 from datetime import datetime
-
+from discord.utils import get
 
 class Modmail(commands.Cog):
     
     def __init__(self, bot):
         self.bot = bot
-        self.channel_id = 795663906018033735
-        self.modmail_channel = self.bot.get_channel(self.channel_id)
-        self.last_timeStamp  = datetime.utcfromtimestamp(0)
+        self.channels = self.bot.get_all_channels()
+        self.modmail_channel = get(self.channels, guild__name="Clark's Chamber", name='staff-chat')
+        self.last_timeStamp = datetime.utcfromtimestamp(0)
 
     @commands.Cog.listener()
     @commands.dm_only()
