@@ -1,14 +1,11 @@
 import discord
 from discord.ext import commands
 from datetime import datetime
-from discord.utils import get
 
 class Modmail(commands.Cog):
     
     def __init__(self, bot):
         self.bot = bot
-        self.channels = self.bot.get_all_channels()
-        self.modmail_channel = get(self.channels, guild__name="Clark's Chamber", name='staff-chat')
         self.last_timeStamp = datetime.utcfromtimestamp(0)
 
     @commands.Cog.listener()
@@ -25,7 +22,9 @@ class Modmail(commands.Cog):
 
                 if time_difference < 5:
                     return await message.channel.send("You are on cooldown!")
-
+                
+                self.channel_id = 795663906018033735
+                self.modmail_channel = self.bot.get_channel(self.channel_id)
                 embed = discord.Embed(
                     title = f"Modmail From `{message.author}`", 
                     description = f"{message.content}", 
