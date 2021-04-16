@@ -6,7 +6,6 @@ import time
 import datetime
 
 
-
 class additional(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -41,7 +40,20 @@ class additional(commands.Cog):
  
 ## ^ Announce command lol
 
-    
+    @commands.Cog.listener()
+    async def on_member_update(self, before, after):
+        if before.nick != after.nick:
+            if after.nick.startswith('!'):
+                nick = []
+                for char in after.nick:
+                    if char == '!':
+                        nick.append(char)
+                    else:
+                        break
+
+                await after.edit(nick=after.nick[len(nick):])
+
+## ^ Anti-hoisting
 
 def setup(bot):
     bot.add_cog(additional(bot))
