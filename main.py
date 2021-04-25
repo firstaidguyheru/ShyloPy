@@ -52,7 +52,7 @@ async def on_member_remove(member): ## Member remove event to counter-act join e
     )
     mbed.set_footer(text=f'New Member Count: {member.guild.member_count}')
     channel = get(member.guild.channels, name='general')
-    await channel.send(embed=mbed)
+    await channel.send(embed=mbed, delete_after=60*10)
     await sleep(60*10) ## Wait 10 minutes before updating.
     for channel_2 in member.guild.channels:
         if channel_2.name.startswith('N'):
