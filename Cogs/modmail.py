@@ -1,12 +1,12 @@
 import discord
 from discord.ext import commands
-from datetime import datetime
+from discord.ext.commands import BucketType
 
 class Modmail(commands.Cog):
     
     def __init__(self, bot):
         self.bot = bot
-        self.last_timeStamp = datetime.utcfromtimestamp(0)
+        self.cooldown = commands.CooldownMapping.from_cooldown(1, 5, commands.BucketType.member)
 
     @commands.Cog.listener()
     @commands.dm_only()
@@ -18,10 +18,8 @@ class Modmail(commands.Cog):
         
         else:
             if message.channel == message.author.dm_channel:
-                time_difference = (datetime.utcnow() - self.last_timeStamp).total_seconds()
-
-                if time_difference < 5:
-                    return await message.channel.send("You are on cooldown!")
+                if self.cd_mapping.get_bucket(message).update_rate_limit():
+                    return await ctx.send("You are on cooldown.")
                 
                 self.channel_id = 795663906018033735
                 self.modmail_channel = self.bot.get_channel(self.channel_id)
