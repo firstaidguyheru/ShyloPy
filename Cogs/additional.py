@@ -43,8 +43,9 @@ class additional(commands.Cog):
     @commands.Cog.listener()
     async def on_member_update(self, before, after):
         if before.nick != after.nick:
-            nick = [char for char in after.nick if after.nick.startswith('!') and char != '!']
-            await after.edit(nick="".join(nick))
+            if after.nick.startswith('!') 
+                nick = [char for char in after.nick if char != '!']
+                await after.edit(nick="".join(nick))
 
 ## ^ Anti-hoisting
 
