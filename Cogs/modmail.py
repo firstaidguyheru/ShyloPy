@@ -19,7 +19,7 @@ class Modmail(commands.Cog):
         else:
             if message.channel == message.author.dm_channel:
                 if self.cd_mapping.get_bucket(message).update_rate_limit():
-                    return
+                    return await ctx.send("You are on cooldown.")
                 
                 self.channel_id = 795663906018033735
                 self.modmail_channel = self.bot.get_channel(self.channel_id)
