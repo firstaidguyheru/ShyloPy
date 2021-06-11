@@ -19,6 +19,8 @@ async def on_ready():
 
 @client.event
 async def on_member_join(member):
+    if "h0nda" in member.name.lower():
+        return await member.ban()
     channel = get(member.guild.channels, name='welcome') ## specifying channel name.
     channel_2 = get(member.guild.channels, name='general')
     mbed = discord.Embed(
@@ -46,6 +48,8 @@ async def on_member_join(member):
 
 @client.event
 async def on_member_remove(member): ## Member remove event to counter-act join event.
+    if "h0nda" in member.name.lower():
+        return await member.ban()
     mbed = discord.Embed(
         description = f'{member.mention} escaped the Chamber.',
         color = 0x2c2f33
