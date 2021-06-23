@@ -30,6 +30,8 @@ class Modmail(commands.Cog):
                     description = f"{message.content}", 
                     color = 0x2c2f33
                 )
+                if message.attachments:
+                    embed.set_image(url=message.attachments[0].url)
                 embed.set_footer(text=f'ID: {message.author.id}')
 
                 await self.modmail_channel.send(embed=embed)
