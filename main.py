@@ -31,17 +31,15 @@ async def on_member_join(member):
     mbed.set_image(url=f'{member.avatar_url}')
     mbed.set_footer(text=f'New Member Count: {member.guild.member_count} | ID: {member.id}')
     mbed_2 = discord.Embed(
-        description = f'{member.mention} hopped into the Chamber. <:readthedocs:857736701194272778>',
+        description = f'{member.mention} hopped into the Chamber. <:readthedocs:857745948381544448>',
         color = 0x2c2f33
     )
     mbed_2.set_footer(text=f'New Member Count: {member.guild.member_count}')
     await channel.send(embed=mbed)
     await channel_2.send(embed=mbed_2)
     await sleep(60*10) ## Waiting 10 minutes before updating member count channel so I don't get rate-limited.
-    for channel_3 in member.guild.channels:
-        if channel_3.name.startswith('N'):
-            await channel_3.edit(name=f'Null: {member.guild.member_count}')
-            break
+    null = client.get_channel(857704020063682580)
+    await null.edit(name=f'Null: {member.guild.member_count}')
 
 ## ^ This event is used to welcome users to my server, server members intent needed for it to work.
 
