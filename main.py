@@ -25,7 +25,7 @@ async def on_member_join(member):
     channel_2 = get(member.guild.channels, name='general')
     mbed = discord.Embed(
         title = f'Welcome To {member.guild.name}',
-        url = 'https://discord.gg/csUnYsr',
+        url = 'https://discord.gg/NDq337zkMx',
         color = 0x2c2f33
     )
     mbed.set_image(url=f'{member.avatar_url}')
@@ -63,30 +63,30 @@ async def on_member_remove(member): ## Member remove event to counter-act join e
             await channel_2.edit(name=f'Null: {member.guild.member_count}')
             break
             
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
+# @client.event
+# async def on_message(message):
+#     if message.author == client.user:
+#         return
 
-    else:
-        channel = get(client.get_all_channels(), guild__name="Clark's Chamber", name='monke-chain')
-        if message.channel.id == channel.id:
-            if not message.content == 'monke'.casefold():
-                await message.delete()
-            else:
-                return
-    await client.process_commands(message)
+#     else:
+#         channel = get(client.get_all_channels(), guild__name="Clark's Chamber", name='monke-chain')
+#         if message.channel.id == channel.id:
+#             if not message.content == 'monke'.casefold():
+#                 await message.delete()
+#             else:
+#                 return
+#     await client.process_commands(message)
 
-@client.event
-async def on_message_edit(before, after):
-    if after.author == client.user:
-        return
+# @client.event
+# async def on_message_edit(before, after):
+#     if after.author == client.user:
+#         return
 
-    else:
-        channel = get(client.get_all_channels(), guild__name="Clark's Chamber", name='monke-chain')
-        if after.channel.id == channel.id:
-            if not after.content.lower() == 'monke':
-                await after.delete()
+#     else:
+#         channel = get(client.get_all_channels(), guild__name="Clark's Chamber", name='monke-chain')
+#         if after.channel.id == channel.id:
+#             if not after.content.lower() == 'monke':
+#                 await after.delete()
 
 ## Channel's starting to get annoying to moderate!
 
