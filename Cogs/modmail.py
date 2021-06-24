@@ -23,7 +23,7 @@ class Modmail(commands.Cog):
                 if time_difference < 5:
                     return await message.channel.send("You are on cooldown!")
                 
-                self.channel_id = 795663906018033735
+                self.channel_id = 857690925810319381
                 self.modmail_channel = self.bot.get_channel(self.channel_id)
                 embed = discord.Embed(
                     title = f"Modmail From `{message.author}`", 
