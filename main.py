@@ -19,8 +19,6 @@ async def on_ready():
 
 @client.event
 async def on_member_join(member):
-    if "h0nda" in member.name.lower():
-        return await member.ban()
     channel = get(member.guild.channels, name='welcome') ## specifying channel name.
     channel_2 = get(member.guild.channels, name='general')
     mbed = discord.Embed(
@@ -36,7 +34,7 @@ async def on_member_join(member):
     )
     mbed_2.set_footer(text=f'New Member Count: {member.guild.member_count}')
     await channel.send(embed=mbed)
-    await channel_2.send(embed=mbed_2)
+    await channel_2.send(embed=mbed_2, delete_after=60*60)
     await sleep(60*10) ## Waiting 10 minutes before updating member count channel so I don't get rate-limited.
     null = client.get_channel(857704020063682580)
     await null.edit(name=f'Null: {member.guild.member_count}')
@@ -52,9 +50,9 @@ async def on_member_remove(member): ## Member remove event to counter-act join e
         description = f'{member.mention} escaped the Chamber.',
         color = 0x2c2f33
     )
-    mbed.set_footer(text=f'New Member Count: {member.guild.member_count}')
+    mbed.set_footer(text=f'New Member Count: {member.guild.member_count}', delete_after=60*60)
     channel = get(member.guild.channels, name='general')
-    await channel.send(embed=mbed, delete_after=60*10)
+    await channel.send(embed=mbed)
     await sleep(60*10) ## Wait 10 minutes before updating.
     for channel_2 in member.guild.channels:
         if channel_2.name.startswith('N'):
