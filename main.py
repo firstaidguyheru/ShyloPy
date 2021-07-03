@@ -44,8 +44,6 @@ async def on_member_join(member):
 
 @client.event
 async def on_member_remove(member): ## Member remove event to counter-act join event.
-    if "h0nda" in member.name.lower():
-        return await member.ban()
     mbed = discord.Embed(
         description = f'{member.mention} escaped the Chamber.',
         color = 0x2c2f33
