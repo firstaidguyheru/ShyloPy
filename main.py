@@ -29,7 +29,7 @@ async def on_member_join(member):
     mbed.set_image(url=f'{member.avatar_url}')
     mbed.set_footer(text=f'New Member Count: {member.guild.member_count} | ID: {member.id}')
     mbed_2 = discord.Embed(
-        description = f'{member.mention} hopped into the Chamber. <:readthedocs:857736664381915157> If you have any coding-related questions, feel free to ask in <#857670125176356874>',
+        description = f'{member.mention} hopped into the Chamber. If you have any coding-related questions, feel free to ask in <#857670125176356874> <:readthedocs:857736664381915157>',
         color = 0x2c2f33
     )
     mbed_2.set_footer(text=f'New Member Count: {member.guild.member_count}')
