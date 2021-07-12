@@ -52,10 +52,8 @@ async def on_member_remove(member): ## Member remove event to counter-act join e
     channel = get(member.guild.channels, name='general')
     await channel.send(embed=mbed)
     await sleep(60*10) ## Wait 10 minutes before updating.
-    for channel_2 in member.guild.channels:
-        if channel_2.name.startswith('N'):
-            await channel_2.edit(name=f'Null: {member.guild.member_count}')
-            break
+    null = client.get_channel(857704020063682580)
+    await null.edit(name=f'Null: {member.guild.member_count}')
             
 @client.event
 async def on_message(message):
