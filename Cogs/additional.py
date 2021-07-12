@@ -11,7 +11,7 @@ class additional(commands.Cog):
         self.bot = bot
 
 
-    @commands.command(pass_context=True)
+    @commands.command()
     async def ping(self, ctx):
         before = time.monotonic()
         message = await ctx.send('Pinging...')
