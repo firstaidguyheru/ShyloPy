@@ -29,12 +29,12 @@ async def on_member_join(member):
     mbed.set_image(url=f'{member.avatar_url}')
     mbed.set_footer(text=f'New Member Count: {member.guild.member_count} | ID: {member.id}')
     mbed_2 = discord.Embed(
-        description = f'{member.mention} hopped into the Chamber. <:readthedocs:775801469685071893>',
+        description = f'{member.mention} hopped into the Chamber. If you have any coding-related questions, feel free to ask in <#857670125176356874> <:readthedocs:775801469685071893>',
         color = 0x2c2f33
     )
     mbed_2.set_footer(text=f'New Member Count: {member.guild.member_count}')
     await channel.send(embed=mbed)
-    await channel_2.send(embed=mbed_2)
+    await channel_2.send(embed=mbed_2, delete_after=60*60)
     await sleep(60*10) ## Waiting 10 minutes before updating member count channel so I don't get rate-limited.
     null = client.get_channel(857704020063682580)
     await null.edit(f'Null: {member.guild.member_count}')
@@ -50,12 +50,10 @@ async def on_member_remove(member): ## Member remove event to counter-act join e
     )
     mbed.set_footer(text=f'New Member Count: {member.guild.member_count}')
     channel = get(member.guild.channels, name='general')
-    await channel.send(embed=mbed, delete_after=60*10)
+    await channel.send(embed=mbed, delete_after=60*60)
     await sleep(60*10) ## Wait 10 minutes before updating.
-    for channel_2 in member.guild.channels:
-        if channel_2.name.startswith('N'):
-            await channel_2.edit(name=f'Null: {member.guild.member_count}')
-            break
+    null = client.get_channel(857704020063682580)
+    await null.edit(f'Null: {member.guild.member_count}')
             
 @client.event
 async def on_message(message):
@@ -65,7 +63,7 @@ async def on_message(message):
     else:
         channel = get(client.get_all_channels(), guild__name="Clark's Chamber", name='monke-chain')
         if message.channel.id == channel.id:
-            if not message.content == 'monke'.casefold():
+            if not message.content.lower() == 'monke':
                 await message.delete()
             else:
                 return
