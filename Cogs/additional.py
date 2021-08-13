@@ -44,8 +44,24 @@ class additional(commands.Cog):
             if after.nick.startswith('!'):
                 nick = [char for char in after.nick if char != '!']
                 await after.edit(nick="".join(nick))
-
+    
 ## ^ Anti-hoisting
+
+    @commands.Cog.listener()
+    async def on_member_join(self, member: discord.Member):
+        if member.bot:
+            featured = discord.utils.get(member.guild.roles, name="Featured Bots")
+            beloved = discord.utils.get(member.guild.roles, name="Beloved Bots")
+            
+            flags = [k.lower() for k, v in dict(member.public_flags).items() if v]
+            if "verified_bot" in flags:
+                verified = discord.utils.get(member.guild.roles, name="Verified Bot Developer/Bot")
+
+                await member.add_roles([featured, beloved, verified])
+                return
+            
+            await member.add_roles([featured, beloved])
+
 
 def setup(bot):
     bot.add_cog(additional(bot))
