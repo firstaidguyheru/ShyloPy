@@ -53,14 +53,16 @@ class additional(commands.Cog):
             featured = discord.utils.get(member.guild.roles, name="Featured Bots")
             beloved = discord.utils.get(member.guild.roles, name="Beloved Bots")
             
+            roles = [featured, beloved]
             flags = [k.lower() for k, v in dict(member.public_flags).items() if v]
             if "verified_bot" in flags:
                 verified = discord.utils.get(member.guild.roles, name="Verified Bot Developer/Bot")
-
-                await member.add_roles([featured, beloved, verified])
+                roles.append(verified)
+                
+                await member.add_roles(*roles)
                 return
             
-            await member.add_roles([featured, beloved])
+            await member.add_roles(*roles)
 
 
 def setup(bot):
