@@ -52,17 +52,23 @@ class additional(commands.Cog):
         if member.bot:
             featured = discord.utils.get(member.guild.roles, name="Featured Bots")
             beloved = discord.utils.get(member.guild.roles, name="Beloved Bots")
+            bot_dev = discord.utils.get(member.guild.roles, name="Bot Developer")
             
+            featured_bots_channel = self.bot.get_channel(858828635124006943)
+            featured_bots_messages = [m.author for m in await featured_bots_channel.history(limit=15).flatten() if str(member.id) in m.content or member.name in m.content]
+            bot_owner = featured_bots_messages[0]
+            
+            owner_roles = [bot_dev]
             roles = [featured, beloved]
-            flags = [k.lower() for k, v in dict(member.public_flags).items() if v]
+            flags = [flag.lower() for flag, has_flag in dict(member.public_flags).items() if has_flag]
+     
             if "verified_bot" in flags:
                 verified = discord.utils.get(member.guild.roles, name="Verified Bot Developer/Bot")
                 roles.append(verified)
-                
-                await member.add_roles(*roles)
-                return
+                owner_roles.append(verified)
             
             await member.add_roles(*roles)
+            return await bot_owner.add_roles(*owner_roles)
 
 
 def setup(bot):
