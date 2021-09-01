@@ -1,6 +1,7 @@
-import os
 import asyncio
+import os
 
+import aiohttp
 import discord
 from discord.ext import commands
 
@@ -13,7 +14,7 @@ intents = discord.Intents.default()
 intents.members = True
 
 bot = commands.AutoShardedBot(command_prefix=commands.when_mentioned_or('shylo!'), case_insensitive=True, help_command=None, intents=intents)
-
+bot.session = aiohttp.ClientSession()
 
 @bot.event
 async def on_ready():
