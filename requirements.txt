@@ -1,3 +1,4 @@
 discord
 python-dotenv
 datetime
+doc-search
