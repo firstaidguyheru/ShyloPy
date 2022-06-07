@@ -48,8 +48,8 @@ class additional(commands.Cog):
         if not results:
             ALL_LIBS = {
                 'python':'https://docs.python.org/3/objects.inv',
-                'dpy':'https://discordpy.readthedocs.io/en/latest/objects.inv',
-                'dpy-master':'https://discordpy.readthedocs.io/en/master/objects.inv',
+                'dpy':'https://discordpy.readthedocs.io/en/stable/objects.inv',
+                'dpy-master':'https://discordpy.readthedocs.io/en/latest/objects.inv',
                 'requests':'https://docs.python-requests.org/en/latest/objects.inv',
                 'pygame':'https://www.pygame.org/docs/objects.inv',
                 'lark':'https://lark-parser.readthedocs.io/en/latest/objects.inv',
